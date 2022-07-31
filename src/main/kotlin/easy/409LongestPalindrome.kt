@@ -10,8 +10,8 @@ return the length of the longest palindrome that can be built with those letters
 Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
  */
 fun longestPalindromeMyAns(s: String): Int {
-    val letterMap = mutableMapOf<Char,Int>()
-    for (char in s){
+    val letterMap = mutableMapOf<Char, Int>()
+    for (char in s) {
         val oldCount = letterMap[char]
         letterMap[char] = if (oldCount != null) {
             oldCount + 1
@@ -22,10 +22,10 @@ fun longestPalindromeMyAns(s: String): Int {
     var length = 0
     var hasAddedOdd = false
     letterMap.values.forEach {
-        val noOfPair = it/2
+        val noOfPair = it / 2
         length += noOfPair * 2
-        if(it%2  == 1 && !hasAddedOdd){
-            length  = length +1
+        if (it % 2 == 1 && !hasAddedOdd) {
+            length = length + 1
             hasAddedOdd = true
         }
     }
@@ -47,7 +47,7 @@ fun longestPalindromeSolution(s: String?): Int {
     return if (!hs.isEmpty()) count * 2 + 1 else count * 2
 }
 
-fun main(){
+fun main() {
     val s = "Aa"
     print(longestPalindromeMyAns(s))
 }
